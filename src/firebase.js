@@ -1,6 +1,7 @@
 import  firebase from "firebase/app";
 import "firebase/auth";
-import {Redirect ,history} from 'react-router-dom';
+import "firebase/storage";
+import "firebase/firestore"
 
 firebase.initializeApp({
   apiKey: process.env.REACT_APP_API_KEY,
@@ -13,13 +14,15 @@ firebase.initializeApp({
 });
 
 export const auth = firebase.auth();
-
+export const storage = firebase.storage();
+export const store = firebase.firestore();
+export const timestamp = firebase.firestore.FieldValue.serverTimestamp;
 const googleProvider = new firebase.auth.GoogleAuthProvider()
 export const signInWithGoogle = () => {
 
   auth.signInWithPopup(googleProvider).then((res) => {
     console.log(res.user);
-    history.push('/mainpage')
+    // history.push('/mainpage')
   }).catch((error) => {
     console.log(error.message)
   })

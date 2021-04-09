@@ -24,14 +24,14 @@ export const Login = () => {
             Login With Google
           </Button>
 
-          <Button
+          {/* <Button
             variant="contained"
             color="primary"
             style={{ fontSize: "1.2rem" }}
             onClick={logOut}
           >
             Logout
-          </Button>
+          </Button> */}
         </>
       </div>
     </>
